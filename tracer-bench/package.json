@@ -13,6 +13,7 @@
     "@opentelemetry/auto-instrumentations-node": "^0.28.0",
     "@opentelemetry/exporter-jaeger": "^1.0.1",
     "@opentelemetry/sdk-node": "^0.27.0",
+    "@opentelemetry/sdk-trace-base": "^1.0.1",
     "express": "^4.17.3"
   }
 }

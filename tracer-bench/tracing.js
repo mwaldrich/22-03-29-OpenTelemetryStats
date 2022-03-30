@@ -1,10 +1,11 @@
-// Require dependencies
-const opentelemetry = require("@opentelemetry/sdk-node");
-const { getNodeAutoInstrumentations } = require("@opentelemetry/auto-instrumentations-node");
+const { BasicTracerProvider, ConsoleSpanExporter, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+const opentelemetry = require('@opentelemetry/api');
 
-const sdk = new opentelemetry.NodeSDK({
-    traceExporter: new opentelemetry.tracing.ConsoleSpanExporter(),
-    instrumentations: [getNodeAutoInstrumentations()]
-});
+const provider = new BasicTracerProvider();
 
-sdk.start()
+// Configure span processor to send spans to the exporter
+provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+provider.register();
+
+// This is what we'll access in all instrumentation code
+export const tracer = opentelemetry.trace.getTracer('example-basic-tracer-node');
