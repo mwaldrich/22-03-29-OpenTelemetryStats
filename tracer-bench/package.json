@@ -14,6 +14,7 @@
     "@opentelemetry/exporter-jaeger": "^1.0.1",
     "@opentelemetry/sdk-node": "^0.27.0",
     "@opentelemetry/sdk-trace-base": "^1.0.1",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "rdtsc": "^2.0.0"
   }
 }

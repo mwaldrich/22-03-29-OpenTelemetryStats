@@ -8,4 +8,4 @@ provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 provider.register();
 
 // This is what we'll access in all instrumentation code
-export const tracer = opentelemetry.trace.getTracer('example-basic-tracer-node');
+exports.tracer = opentelemetry.trace.getTracer('example-basic-tracer-node');

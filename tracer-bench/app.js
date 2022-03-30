@@ -1,12 +1,21 @@
-const express = require("express");
+'use strict';
 
-const PORT = process.env.PORT || "8080";
-const app = express();
+const { tracer } = require('./tracing')
+const { rdtsc } = require('rdtsc')
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
+for (let i = 0; i < 10; i += 1) {
+    doWork();
 
-app.listen(parseInt(PORT, 10), () => {
-    console.log(`Listening for requests on http://localhost:${PORT}`);
-});
+    for (let i = 0; i < 1_000_000; i++) {
+        /* no-op */
+    }
+}
+
+function doWork() {
+    const before = rdtsc()
+    const parentSpan = tracer.startSpan('main')
+    parentSpan.end()
+    const after = rdtsc()
+
+    console.log(`CPU Cycles: ${after-before}`)
+}
