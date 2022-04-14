@@ -1,5 +1,6 @@
 # Installation
 ```bash
+cd tracer-bench
 npm install
 ```
 
