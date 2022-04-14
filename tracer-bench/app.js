@@ -2,7 +2,7 @@
 
 const { tracer } = require('./tracing')
 const { rdtsc } = require('rdtsc')
-
+const { performance } = require('perf_hooks')
 
 // warm()
 bench()
