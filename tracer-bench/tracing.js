@@ -18,7 +18,6 @@ if (!DISK) {
     console.log(`Using file, DISK=${process.env["DISK"]}`)
     spanExporter = {
         export: (spans) => {
-            console.error(`Exporting ${spans.length} span s...`)
             fs.appendFileSync("./output.txt", spans.map(JSON.stringify).join("\n"))
         }
     };
