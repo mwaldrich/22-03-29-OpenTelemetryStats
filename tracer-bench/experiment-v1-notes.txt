@@ -1,0 +1,9 @@
+Experiment v1: Batch/Sync, File/Stdout
+
+Run: ./run-experiment.sh
+
+Output: 4 files:
+1. js_sync_file.csv
+2. js_batch_file.csv
+3. js_sync_stdout.csv
+4. js_batch_stdout.csv
