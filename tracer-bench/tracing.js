@@ -25,7 +25,7 @@ if (!DISK) {
 
 let spanProcessor;
 if (BATCH) {
-    spanProcessor = new BatchSpanProcessor(spanExporter)
+    spanProcessor = new BatchSpanProcessor(spanExporter, {maxQueueSize: 1000})
 } else {
     spanProcessor = new SimpleSpanProcessor(spanExporter)
 }
