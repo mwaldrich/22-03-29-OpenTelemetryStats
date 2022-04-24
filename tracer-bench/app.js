@@ -4,6 +4,9 @@ const { tracer } = require('./tracing')
 const { rdtsc } = require('rdtsc')
 const { performance } = require('perf_hooks')
 
+
+const opentelemetry = require('@opentelemetry/api');
+
 // Read in experiment configuratioin from environment variables
 warm()
 bench()
@@ -27,7 +30,9 @@ function doWork() {
     const before_cycles = rdtsc()
 
     const parentSpan = tracer.startSpan('main')
-    const childSpan = tracer.startSpan('child', undefined, parentSpan.spanContext)
+
+    const parentCtx = opentelemetry.trace.setSpan(opentelemetry.context.active(), parentSpan);
+    const childSpan = tracer.startSpan('child', undefined, parentCtx);
     childSpan.end()
     parentSpan.end()
     const after_cycles = rdtsc()
