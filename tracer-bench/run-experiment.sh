@@ -5,4 +5,4 @@ rm -r node_modules
 npm install
 
 # Run experiment
-node app.js 2> js_string1.csv
+node app.js 2> js_nested.csv
