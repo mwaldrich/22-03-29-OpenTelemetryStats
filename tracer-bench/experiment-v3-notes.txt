@@ -1,0 +1,16 @@
+Experiment v3: Logging different data types to Batched STDOUT:
+1. String (n=1)
+2. String (n=1000)
+3. String (n=10000)
+
+Run: ./run-experiment.sh
+
+It will test the following datatypes:
+    - STRING1
+    - STRING1000
+    - STRING10000
+
+Output: ??? files:
+1. js_string1.csv
+2. js_string100.csv
+3. js_string1000.csv

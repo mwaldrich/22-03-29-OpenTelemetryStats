@@ -2,9 +2,9 @@ const { BasicTracerProvider, ConsoleSpanExporter, SimpleSpanProcessor, BatchSpan
 const opentelemetry = require('@opentelemetry/api');
 const fs = require('fs')
 
-// Read in environment variables for configuration
-const BATCH = process.env["BATCH"] == 1
-const  DISK = process.env["DISK"]  == 1
+// Configure tracer for experiment v3
+const BATCH = 1
+const  DISK = 0
 
 const provider = new BasicTracerProvider();
 
