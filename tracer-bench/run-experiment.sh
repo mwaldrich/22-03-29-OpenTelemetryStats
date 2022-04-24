@@ -5,7 +5,6 @@ rm -r node_modules
 npm install
 
 # Run experiment
-env BATCH=0 FILE=0 node app.js 2> js_sync_stdout.csv
-env BATCH=1 FILE=0 node app.js 2> js_batch_stdout.csv
-env BATCH=0 FILE=1 node app.js 2> js_sync_file.csv
-env BATCH=1 FILE=1 node app.js 2> js_batch_file.csv
+env     DATATYPE=STRING1 node app.js 2> js_string1.csv
+env  DATATYPE=STRING1000 node app.js 2> js_string1000.csv
+env DATATYPE=STRING10000 node app.js 2> js_string10000.csv
