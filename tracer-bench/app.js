@@ -25,8 +25,9 @@ function bench() {
 function doWork() {
     const before_time = performance.now()
     const before_cycles = rdtsc()
+
     const parentSpan = tracer.startSpan('main')
-    const childSpan = tracer.startSpan('child')
+    const childSpan = tracer.startSpan('child', undefined, parentSpan.spanContext)
     childSpan.end()
     parentSpan.end()
     const after_cycles = rdtsc()
