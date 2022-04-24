@@ -25,11 +25,14 @@ if (!DISK) {
 
 let spanProcessor;
 if (BATCH) {
-    spanProcessor = new BatchSpanProcessor(spanExporter, {maxQueueSize: 1000})
+    spanProcessor = new BatchSpanProcessor(spanExporter)
 } else {
     spanProcessor = new SimpleSpanProcessor(spanExporter)
 }
 
+process.on('exit', () => {
+    spanProcessor.forceFlush()
+})
 
 
 provider.addSpanProcessor(spanProcessor);
